@@ -18,18 +18,14 @@ ECS_NUM_IMAGES_DELETE_PER_CYCLE=1
 ECS_INSTANCE_ATTRIBUTES={"server.type": "Lincy-ecs-webserver"}
 _EOF_
 
-sudo service docker status | egrep 'docker dead but subsys locked' && \
-
-{ kill -9 $(ps aux | awk '/[d]ocker/ {print $2 }'| xargs) && \
-
-sudo service docker restart; } || \
-
+sudo service docker status | egrep 'docker dead but subsys locked'
+sudo kill -9 $(ps aux | awk '/[d]ocker/ {print $2 }'| xargs) 
+sudo service docker restart
 { service docker status | egrep '[a]ctive|[r]unning' || \
 
 sudo service docker restart; }
 
-ps aux | awk ' /[e]cs/ { print $2 }'|xargs sudo kill
-
+sudo kill -9 $(ps aux | awk ' /[e]cs/ { print $2 }'|xargs )
 sudo start ecs
 
 docker ps| grep [a]ws || echo "ECS not running"
