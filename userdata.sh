@@ -4,7 +4,7 @@ sudo yum install epel-release -y
 sudo yum update -y
 sudo yum install tree vim python27 atop jq wget curl python27-pip git docker -y
 sudo pip install awscli
-sudo pip install --upgrade pip
+sudo pip install pip --upgrade
 sudo pip install ansible
 if [[ $(cat /etc/*-release | grep -i [a]mazon | head -1 | awk -F "=" '{print $2}' | sed -e 's/"//g') == "Amazon Linux AMI"]]
 sudo yum localinstall https://packages.chef.io/files/stable/chef/13.5.3/el/6/chef-13.5.3-1.el6.x86_64.rpm -y
