@@ -1,12 +1,13 @@
 #!/bin/bash
 sudo yum update -y
-sudo yum install epel-release -y
-sudo yum update -y
+#sudo yum install epel-release -y
+#sudo yum update -y
+#sudo yum install tree vim python27 atop jq wget curl python-pip git -y
 sudo yum install tree vim python27 atop jq wget curl python-pip git -y
-sudo pip install awscli
 sudo pip install pip --upgrade
-sudo pip install ansible
-sudo yum localinstall https://packages.chef.io/files/stable/chef/13.5.3/el/6/chef-13.5.3-1.el6.x86_64.rpm -y
+sudo pip install awscli
+#sudo pip install ansible
+#sudo yum localinstall https://packages.chef.io/files/stable/chef/13.5.3/el/6/chef-13.5.3-1.el6.x86_64.rpm -y
 sudo cat << _EOF_ >> /etc/ecs/ecs.config
 ECS_LOGLEVEL=debug
 ECS_CLUSTER=lincy-test-cluster
