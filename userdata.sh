@@ -16,7 +16,7 @@ ECS_ENGINE_TASK_CLEANUP_WAIT_DURATION=1m
 ECS_DISABLE_IMAGE_CLEANUP=false
 ECS_IMAGE_CLEANUP_INTERVAL=3h
 ECS_NUM_IMAGES_DELETE_PER_CYCLE=1
-ECS_INSTANCE_ATTRIBUTES={"server.type": "testserver"}
+ECS_INSTANCE_ATTRIBUTES={"server.type": "Lincy-ecs-webserver"}
 _EOF_
 
 service docker status | egrep 'docker dead but subsys locked' && \
@@ -35,6 +35,6 @@ start ecs
 
 docker ps| grep [a]ws || echo "ECS not running"
 
-ngcount=`aws ecs describe-services --cluster lincy-test-cluster --service testserver --query 'services[*].runningCount' --output text`
+ngcount=`aws ecs describe-services --cluster lincy-test-cluster --service Lincy-ecs-webserver --query 'services[*].runningCount' --output text`
 echo $((ngcount+=1))
-aws ecs update-service --cluster lincy-test-cluster --service testserver --desired-count $ngcount
+aws ecs update-service --cluster lincy-test-cluster --service Lincy-ecs-webserver --desired-count $ngcount
