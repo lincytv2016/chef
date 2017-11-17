@@ -12,3 +12,5 @@ sudo service httpd restart
 sleep 10
 sudo yum install mysql-server -y
 sudo yum install php php-mysql -y
+sudo service mysqld start
+sudo chkconfig mysqld on
