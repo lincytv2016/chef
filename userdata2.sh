@@ -14,3 +14,4 @@ sudo yum install mysql-server -y
 sudo yum install php php-mysql -y
 sudo service mysqld start
 sudo chkconfig mysqld on
+echo -e "\ny\ny\nabc\nabc\ny\ny\ny\ny" | sudo mysql_secure_installation
