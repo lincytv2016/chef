@@ -15,3 +15,8 @@ sudo yum install php php-mysql -y
 sudo service mysqld start
 sudo chkconfig mysqld on
 echo -e "\ny\ny\nabc\nabc\ny\ny\ny\ny" | sudo mysql_secure_installation
+cat << EOF > /var/www/html/info.php
+<?php
+phpinfo();
+?>
+EOF
